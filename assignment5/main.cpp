@@ -17,7 +17,7 @@ int main(int argc, const char * argv[]) {
     
     Shape * theShape = getShape();
     
-    theShape->toString();
+    std::cout << theShape->toString();
     
 
     

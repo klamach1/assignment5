@@ -32,7 +32,7 @@ Shape * getShape() {
     std::cin >> colorOfShape;
     
     if (colorOfShape != "done") {
-        std::cout << "Enter shape type...";
+        std::cout << "Enter shape type...\n";
         std::cin >> typeOfShape;
         
         if (typeOfShape == "circle") {
