@@ -9,7 +9,7 @@
 #include <iostream>
 #include <string>
 #include "Shape.h"
-#include "getShape.cpp"
+#include "getShape.h"
 
 int main(int argc, const char * argv[]) {
     // insert code here...

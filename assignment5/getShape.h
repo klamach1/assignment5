@@ -6,6 +6,9 @@
 //  Copyright © 2018 Chris Lawrence. All rights reserved.
 //
 
+#ifndef Shape_h
+#define Shape_h
+
 #include <stdio.h>
 #include <iostream>
 #include "Rectangle.h"
@@ -53,3 +56,4 @@ Shape * getShape() {
     return theShape;
 
 }
+#endif /* getShape_h */
