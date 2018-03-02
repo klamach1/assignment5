@@ -8,14 +8,16 @@
 
 #include <iostream>
 #include <string>
-#include "Rectangle.h"
-#include "Square.h"
-#include "Circle.h"
+#include "Shape.h"
 #include "getShape.cpp"
 
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Enter a list of shapes - 'done' to end\n";
+    
+    Shape * theShape = getShape();
+    
+    theShape->toString();
     
 
     

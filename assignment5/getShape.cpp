@@ -7,9 +7,13 @@
 //
 
 #include <stdio.h>
+#include <iostream>
 #include "Rectangle.h"
 #include "Square.h"
 #include "Circle.h"
+
+
+
 
 Shape * getShape() {
     
@@ -22,7 +26,7 @@ Shape * getShape() {
     double width;
     
     std::cout << "Enter the shape's color (or 'done')...\n";
-    std:cin >> colorOfShape;
+    std::cin >> colorOfShape;
     
     if (colorOfShape != "done") {
         std::cout << "Enter shape type...";
