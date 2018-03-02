@@ -8,6 +8,8 @@
 
 #include "Square.h"
 #include "math.h"
+#include <iomanip>
+#include <sstream>
 
 Square::Square(const string& color, double side) : Shape(color) {
     this->side = side;
@@ -18,5 +20,11 @@ double Square::area() const {
 }
 
 string Square::toString() const {
-    return "Rectangle";
+    ostringstream outputString;
+    
+    outputString << getColor() << " Square with side of " << fixed
+    << setprecision(2) << side
+    << " and area of " << area() << endl;
+    
+    return outputString.str();
 }

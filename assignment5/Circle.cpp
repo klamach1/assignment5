@@ -9,6 +9,8 @@
 
 #include "Circle.h"
 #include "math.h"
+#include <iomanip>
+#include <sstream>
 
 Circle::Circle(const string& color, double radius) : Shape(color) {
     this->radius = radius;
@@ -19,5 +21,11 @@ double Circle::area() const {
 };
 
 string Circle::toString() const {
-    return "Circle";
+    ostringstream outputString;
+    
+    outputString << getColor() << " Circle with radius of " << fixed
+    << setprecision(2) << radius << " and area of "
+    << area() << endl;
+    
+    return outputString.str();
 };

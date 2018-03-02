@@ -7,9 +7,17 @@
 //
 
 #include <iostream>
+#include <string>
+#include "Rectangle.h"
+#include "Square.h"
+#include "Circle.h"
+#include "getShape.cpp"
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "Hello, World!\n";
+    std::cout << "Enter a list of shapes - 'done' to end\n";
+    
+
+    
     return 0;
 }

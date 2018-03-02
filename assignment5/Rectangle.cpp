@@ -7,6 +7,8 @@
 //
 
 #include "Rectangle.h"
+#include <iomanip>
+#include <sstream>
 
 Rectangle::Rectangle(const string& color, double length, double width) : Shape(color) {
     this->length = length;
@@ -18,7 +20,14 @@ double Rectangle::area() const {
 }
 
 string Rectangle::toString() const {
-    return "Rectangle";
+    ostringstream outputString;
+    
+    outputString << getColor() << " Rectangle with length of " << fixed
+    << setprecision(2) << length
+    << " and width of " << width << " and area of "
+    << area() << endl;
+    
+    return outputString.str();
 }
 
 
