@@ -6,8 +6,8 @@
 //  Copyright © 2018 Chris Lawrence. All rights reserved.
 //
 
-#ifndef Shape_h
-#define Shape_h
+#ifndef getShape_h
+#define getShape_h
 
 #include <stdio.h>
 #include <iostream>
