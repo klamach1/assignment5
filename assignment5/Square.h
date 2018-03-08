@@ -19,6 +19,8 @@ public:
     
     Square(const string&, double side);
     
+    virtual ~Square();
+    
     virtual double area() const override;
     
     virtual string toString() const override;

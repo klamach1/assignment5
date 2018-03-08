@@ -21,6 +21,8 @@ public:
     //color, length, width
     Rectangle(const string&, double, double);
     
+    virtual ~Rectangle();
+    
     virtual double area() const override;
     
     virtual string toString() const override;

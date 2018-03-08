@@ -20,6 +20,8 @@ public:
   
     Circle(const string&, double radius);
     
+    virtual ~Circle();
+    
     virtual double area() const override;
     
     virtual string toString() const override;

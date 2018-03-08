@@ -9,15 +9,37 @@
 #include <iostream>
 #include <string>
 #include "Shape.h"
-#include "getShape.h"
+
+extern Shape* getShape();
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
+    
+    int shapeCount = 0;
+    
+    Shape* shapes[5];
+    
+    Shape * theShape = nullptr;
+    
     std::cout << "Enter a list of shapes - 'done' to end\n";
     
-    Shape * theShape = getShape();
+    do {
     
-    std::cout << theShape->toString();
+        theShape = getShape();
+        
+        if (theShape != nullptr) {
+            shapes[shapeCount] = theShape;
+            ++shapeCount;
+        }
+    
+    } while (theShape != nullptr);
+    
+    for (int i = 0; i < shapeCount; ++i) {
+        std::cout << shapes[i]->toString();
+        delete shapes[i];
+    }
+    
+    
+    
     
 
     

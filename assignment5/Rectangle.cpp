@@ -15,6 +15,8 @@ Rectangle::Rectangle(const string& color, double length, double width) : Shape(c
     this->width = width;
 }
 
+Rectangle::~Rectangle() {};
+
 double Rectangle::area() const {
     return length * width;
 }

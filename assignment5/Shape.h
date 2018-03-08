@@ -19,6 +19,8 @@ class Shape {
 public:
     Shape(const string&);
     
+    virtual ~Shape();
+    
     string getColor() const;
     
     virtual double area() const = 0;

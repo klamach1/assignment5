@@ -16,6 +16,8 @@ Circle::Circle(const string& color, double radius) : Shape(color) {
     this->radius = radius;
 }
 
+Circle::~Circle() {};
+
 double Circle::area() const {
     return M_PI * pow(radius,2);
 };

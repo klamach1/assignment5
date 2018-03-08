@@ -15,6 +15,8 @@ Square::Square(const string& color, double side) : Shape(color) {
     this->side = side;
 }
 
+Square::~Square() {};
+
 double Square::area() const {
     return pow(side, 2);
 }

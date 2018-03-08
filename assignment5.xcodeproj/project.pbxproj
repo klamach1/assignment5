@@ -12,7 +12,7 @@
 		264495E1204836E0006717C7 /* Circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 264495DF204836E0006717C7 /* Circle.cpp */; };
 		264495E4204836EE006717C7 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 264495E2204836EE006717C7 /* Rectangle.cpp */; };
 		264495E7204836FA006717C7 /* Square.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 264495E5204836FA006717C7 /* Square.cpp */; };
-		265DF4812048BE1600972123 /* getShape.h in Sources */ = {isa = PBXBuildFile; fileRef = 265DF4802048BE1600972123 /* getShape.h */; };
+		265DF4812048BE1600972123 /* getShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 265DF4802048BE1600972123 /* getShape.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,7 +38,7 @@
 		264495E3204836EE006717C7 /* Rectangle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rectangle.h; sourceTree = "<group>"; };
 		264495E5204836FA006717C7 /* Square.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Square.cpp; sourceTree = "<group>"; };
 		264495E6204836FA006717C7 /* Square.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Square.h; sourceTree = "<group>"; };
-		265DF4802048BE1600972123 /* getShape.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = getShape.h; sourceTree = "<group>"; };
+		265DF4802048BE1600972123 /* getShape.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = getShape.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 				264495E3204836EE006717C7 /* Rectangle.h */,
 				264495E5204836FA006717C7 /* Square.cpp */,
 				264495E6204836FA006717C7 /* Square.h */,
-				265DF4802048BE1600972123 /* getShape.h */,
+				265DF4802048BE1600972123 /* getShape.cpp */,
 			);
 			path = assignment5;
 			sourceTree = "<group>";
@@ -144,7 +144,7 @@
 			files = (
 				264495E7204836FA006717C7 /* Square.cpp in Sources */,
 				264495CD20483330006717C7 /* main.cpp in Sources */,
-				265DF4812048BE1600972123 /* getShape.h in Sources */,
+				265DF4812048BE1600972123 /* getShape.cpp in Sources */,
 				264495E1204836E0006717C7 /* Circle.cpp in Sources */,
 				264495DE204836D4006717C7 /* Shape.cpp in Sources */,
 				264495E4204836EE006717C7 /* Rectangle.cpp in Sources */,
