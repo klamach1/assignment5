@@ -16,12 +16,19 @@ extern Shape* getShape(string);
 
 int getManualInput(Shape**);
 int getFileInput(Shape**);
+void outputShapes(Shape**, int);
 
 int main(int argc, const char * argv[]) {
     
     int inputOption = 0;
     
     int shapeCount = 0;
+    
+    //variable to help with bubble sort
+    bool swapFlag = 1;
+    
+    //sort passes
+    int sortPassCnt = 0;
     
     Shape* shapes[10];
     
@@ -35,10 +42,46 @@ int main(int argc, const char * argv[]) {
         shapeCount = getFileInput(shapes);
     }
     
+    //output the unsorted array
+    std::cout << endl << "The list of shapes entered...\n";
+    outputShapes(shapes, shapeCount);
+    std::cout << "Sorting shapes into order by area...\n";
+    //bubble sort the array
+    
+    for (int i = 0; i < shapeCount && swapFlag; i++) {
+        
+        for (int j = 0; j < (shapeCount - i - 1); j++) {
+            
+            Shape* temp;
+            
+            if (shapes[j]->area() > shapes[j+1]->area()) {
+                temp = shapes[j];
+                shapes[j] = shapes[j+1];
+                shapes[j+1] = temp;
+            }
+            else {
+                swapFlag = 0;
+            }
+            
+        }
+        ++sortPassCnt;
+    }
+    
+    std::cout << "Sort pass count was " << sortPassCnt << endl;
+    
+    std::cout << endl << "The list of shapes entered...\n";
+    
+    //output the sorted array
+    
+    outputShapes(shapes, shapeCount);
+    
+    //free dynamically allocated memory
+    
     for (int i = 0; i < shapeCount; ++i) {
-        std::cout << shapes[i]->toString();
         delete shapes[i];
     }
+    
+    
     
     return 0;
 }
@@ -88,5 +131,12 @@ int getFileInput(Shape** shapes) {
     }
     
     return shapeCount;
+}
+
+void outputShapes(Shape** shapes, int shapeCount) {
+    for (int i = 0; i < shapeCount; ++i) {
+        std::cout << shapes[i]->toString();
+    }
+    std::cout << endl;
 }
 
