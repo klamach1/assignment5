@@ -16,7 +16,7 @@
 #include "Circle.h"
 
 
-
+// getShape function that takes user input for shapes
 
 Shape * getShape() {
     
@@ -58,6 +58,8 @@ Shape * getShape() {
     return theShape;
     
 }
+
+// getShape function that takes a string for input
 
 Shape * getShape(string input) {
     
