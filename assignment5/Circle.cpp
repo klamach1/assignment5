@@ -12,6 +12,7 @@
 #include "math.h"
 #include <iomanip>
 #include <sstream>
+const double pi = 3.14159265358979323846;
 
 //pass color to the base class contructor and then set radius
 Circle::Circle(const string& color, double radius) : Shape(color) {
@@ -22,7 +23,7 @@ Circle::~Circle() {};
 
 //use the math library to get PI and the pow function
 double Circle::area() const {
-    return M_PI * pow(radius,2);
+    return pi * pow(radius,2);
 };
 
 string Circle::toString() const {
