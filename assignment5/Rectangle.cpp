@@ -10,6 +10,7 @@
 #include <iomanip>
 #include <sstream>
 
+//call the base class constructor to set color, then set length and width
 Rectangle::Rectangle(const string& color, double length, double width) : Shape(color) {
     this->length = length;
     this->width = width;

@@ -5,23 +5,34 @@
 //  Created by Chris Lawrence on 3/1/18.
 //  Copyright © 2018 Chris Lawrence. All rights reserved.
 //
+// This program will prompt the user for entry of up to
+// a defined maximum number of shapes.  It presents the user
+// with the option of manually entering the shape data or entering
+// a file name of a space delimited file with the data.
+// Once the data is collected into the array, the program will display the
+// shapes, then sort the shapes, and then display the sorted shapes.
 
 #include <iostream>
 #include <fstream>
 #include <string>
 #include "Shape.h"
 
+//defining these functions with extern to prevent OSX compiler issues
 extern Shape* getShape();
 extern Shape* getShape(string);
 
-int getManualInput(Shape**);
-int getFileInput(Shape**);
+//function prototypes
+int getManualInput(Shape**, int);
+int getFileInput(Shape**, int);
 void outputShapes(Shape**, int);
 
+//main driver
 int main(int argc, const char * argv[]) {
     
+    //var for menu option input
     int inputOption = 0;
     
+    //var to hold the input count
     int shapeCount = 0;
     
     //variable to help with bubble sort
@@ -30,25 +41,38 @@ int main(int argc, const char * argv[]) {
     //sort passes
     int sortPassCnt = 0;
     
-    Shape* shapes[10];
+    //max number of shapes to collect
+    const int maxShapeCnt = 10;
     
+    //array for the shapes, max of 10
+    Shape* shapes[maxShapeCnt];
+    
+    //prompt the user for the shape entry option
     std::cout << "Enter 1 for manual shape input or 2 for a file input\n";
     
     std::cin >> inputOption;
     
+    //call the appropriate function to collect the data
     if (inputOption == 1) {
-        shapeCount = getManualInput(shapes);
+        shapeCount = getManualInput(shapes, maxShapeCnt);
     } else if (inputOption == 2) {
-        shapeCount = getFileInput(shapes);
+        shapeCount = getFileInput(shapes, maxShapeCnt);
     }
     
-    //output the unsorted array
+
     std::cout << endl << "The list of shapes entered...\n";
-    outputShapes(shapes, shapeCount);
-    std::cout << "Sorting shapes into order by area...\n";
-    //bubble sort the array
     
+    //output the unsorted array
+    outputShapes(shapes, shapeCount);
+    
+    std::cout << "Sorting shapes into order by area...\n";
+    
+    //bubble sort the array
     for (int i = 0; i < shapeCount && swapFlag; i++) {
+        
+        //flip the flag, if data is sorted the flag will flip back
+        //otherwise the sort will finish
+        swapFlag = 0;
         
         for (int j = 0; j < (shapeCount - i - 1); j++) {
             
@@ -58,9 +82,7 @@ int main(int argc, const char * argv[]) {
                 temp = shapes[j];
                 shapes[j] = shapes[j+1];
                 shapes[j+1] = temp;
-            }
-            else {
-                swapFlag = 0;
+                swapFlag = 1;
             }
             
         }
@@ -81,19 +103,26 @@ int main(int argc, const char * argv[]) {
         delete shapes[i];
     }
     
-    
-    
     return 0;
 }
 
-int getManualInput(Shape** shapes) {
+//function to collect user entry for shape data.  takes the array
+//by reference to populate and the maximum number of shapes that can be collected
+//returns the actual number of shapes collected
+
+int getManualInput(Shape** shapes, int maxShapes) {
     
     int shapeCount = 0;
     
     Shape * theShape = nullptr;
 
-     std::cout << "Enter a list of shapes - 'done' to end\n";
-     
+     std::cout << "Enter a list of up to " << maxShapes <<
+                " shapes - 'done' to end\n";
+    
+    //call the function getShape() in getShape.cpp to
+    //prompt to the details of each shape and get the shape object
+    //pointer back, and store it in the array
+    //function returns a nullptr when the user signals done
      do {
      
      theShape = getShape();
@@ -103,12 +132,17 @@ int getManualInput(Shape** shapes) {
      ++shapeCount;
      }
      
-     } while (theShape != nullptr);
+     } while (theShape != nullptr && shapeCount < maxShapes);
     
     return shapeCount;
 }
 
-int getFileInput(Shape** shapes) {
+
+//function to collect filename for shape data.  takes the array
+//by reference to populate and the maximum number of shapes that can be collected
+//returns the actual number of shapes collected
+
+int getFileInput(Shape** shapes,int maxShapes) {
     
     string fileName;
     
@@ -116,22 +150,34 @@ int getFileInput(Shape** shapes) {
     
     Shape * theShape = nullptr;
     
-    std::cout << "Enter a file to process\n";
+    //prompt for the filename
+    std::cout << "Enter a file with up to " << maxShapes
+                << " to process\n";
     
     std::cin >> fileName;
     
+    //use ifstream to open the input file
     std::ifstream inputFile(fileName);
     
-    std::string str;
-    while (std::getline(inputFile, str))
+    std::string inputLine;
+    
+    //read the file using getline, getline will return false
+    //at the end of the file, loop can also be ended if the max
+    //number of shapes has been reached
+    while (std::getline(inputFile, inputLine) && shapeCount < maxShapes)
     {
-        theShape = getShape(str);
+        theShape = getShape(inputLine);
         shapes[shapeCount] = theShape;
         ++shapeCount;
     }
+    //close the file to release the resource
+    inputFile.close();
     
     return shapeCount;
 }
+
+//function to loop through the array and display the shapes.
+//takes the shapes array and the number of shapes in the array
 
 void outputShapes(Shape** shapes, int shapeCount) {
     for (int i = 0; i < shapeCount; ++i) {

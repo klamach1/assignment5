@@ -5,6 +5,11 @@
 //  Created by Chris Lawrence on 3/1/18.
 //  Copyright © 2018 Chris Lawrence. All rights reserved.
 //
+// file containing two version of getShape.  One version takes
+// no parameters and prompts the user for the details of a shape,
+// and then creates the new object and returns a pointer.
+// the other version takes a space-delimited string and parses it
+// and then creates the new object and returns a pointer
 
 
 #include <stdio.h>
@@ -27,6 +32,8 @@ Shape * getShape() {
     double radius;
     double length;
     double width;
+    
+    //collect the input, if the color == "done" then return nullptr
     
     std::cout << "Enter the shape's color (or 'done')...\n";
     std::cin >> colorOfShape;
@@ -66,17 +73,20 @@ Shape * getShape(string input) {
     Shape * theShape = nullptr;
     string typeOfShape;
     string colorOfShape;
+    //generic variables to simplify parsing logic
     double firstMeasure = 0.0;
     double secondMeasure = 0.0;
     
+    //helper var to track the parser
     int pos = 0;
     
-    string splitString[4];
-    
+    //use istringstream to parse the string
+    //with the space delimiter
     istringstream stream(input);
     
+    //while the string is being parsed
     while (stream) {
-        
+        //assign the values based on the pos loop counter
         switch (pos) {
             case 0:
                 stream >> colorOfShape;
@@ -93,6 +103,7 @@ Shape * getShape(string input) {
     
     
     
+    //create the object and return it
     
     if (typeOfShape == "circle") {
         theShape = new Circle(colorOfShape, firstMeasure);
