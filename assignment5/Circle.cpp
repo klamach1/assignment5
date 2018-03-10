@@ -9,7 +9,7 @@
 
 
 #include "Circle.h"
-#include "math.h"
+#include <cmath>
 #include <iomanip>
 #include <sstream>
 const double pi = 3.14159265358979323846;

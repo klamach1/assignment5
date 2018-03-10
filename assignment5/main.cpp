@@ -152,7 +152,7 @@ int getFileInput(Shape** shapes,int maxShapes) {
     
     //prompt for the filename
     std::cout << "Enter a file with up to " << maxShapes
-                << " to process\n";
+                << " shapes to process\n";
     
     std::cin >> fileName;
     

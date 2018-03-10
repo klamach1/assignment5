@@ -17,9 +17,9 @@ using namespace std;
 
 class Square : public Shape {
 public:
-    
+    //constructor takes color and side measure
     Square(const string&, double);
-    
+    //virtual destructor
     virtual ~Square();
     
     //override of virtual function area specific to a square

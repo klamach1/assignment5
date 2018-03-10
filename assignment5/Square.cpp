@@ -8,7 +8,7 @@
 // implementation of Square class, see header for comments
 
 #include "Square.h"
-#include "math.h"
+#include <cmath>
 #include <iomanip>
 #include <sstream>
 
