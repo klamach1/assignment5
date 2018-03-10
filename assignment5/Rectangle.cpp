@@ -7,18 +7,30 @@
 //
 
 #include "Rectangle.h"
+#include <iomanip>
+#include <sstream>
 
+//call the base class constructor to set color, then set length and width
 Rectangle::Rectangle(const string& color, double length, double width) : Shape(color) {
     this->length = length;
     this->width = width;
 }
+
+Rectangle::~Rectangle() {};
 
 double Rectangle::area() const {
     return length * width;
 }
 
 string Rectangle::toString() const {
-    return "Rectangle";
+    ostringstream outputString;
+    
+    outputString << getColor() << " Rectangle with length of " << fixed
+    << setprecision(2) << length
+    << " and width of " << width << " and area of "
+    << area() << endl;
+    
+    return outputString.str();
 }
 
 

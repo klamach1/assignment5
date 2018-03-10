@@ -17,12 +17,19 @@ using namespace std;
 
 class Shape {
 public:
+    //contructor to set color
     Shape(const string&);
     
+    //virtual destructor to facilitate deletes
+    virtual ~Shape();
+    
+    //function to get the object colot
     string getColor() const;
     
+    //abstract function to calculate area
     virtual double area() const = 0;
     
+    //abstract function to display shape attributes
     virtual string toString() const = 0;
 
 private:
